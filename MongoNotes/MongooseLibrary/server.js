@@ -6,7 +6,9 @@ var MongoClient=require('mongodb').MongoClient;
 var url="mongodb://127.0.0.1:27017/validDb";
 var data = {
    "name": "Modi",
-  "address":  "Gujrat"
+  "address":  "Gujrat",
+
+	
 //  "votes": "12"     //string or integer
   };
 

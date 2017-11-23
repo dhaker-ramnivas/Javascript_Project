@@ -28,17 +28,17 @@ var server=http.createServer((request,responce)=>{
   fs.readFileSync("result.txt", "utf8", function (error, data) {
           if(error)
           {console.log("error in reading file\n");
-          responce.writeHead(200, {'Content-Type':'text/html'});
-         responce.write(error);
-        //  responce.end();
+          responce.writeHead(401, {'Content-Type':'text/html'});
+         responce.end(error);
+        
           }
           else{
                 console.log("from result "+ data);
                responce.writeHead(200, {'Content-Type':'text/html'});
-               responce.write(data);
-              //  responce.end();
+               responce.end(data);
+              
                 }
-                responce.end("dsxv");
+          
       });
     }
  });
@@ -46,14 +46,13 @@ var server=http.createServer((request,responce)=>{
             var workerProcess = child_process.spawn('nodejs', [file]);
 
           workerProcess.stdout.on('data',(data)=> {
-              fs.writeFile('result.txt', data);
+              fs.appendFile('result.txt', data);
               console.log("file-result sucessful written in result file\n");
               //return data;
-
            });
          workerProcess.stderr.on('data',(data)=> {
               console.log('stderr: ' + data);
-              fs.writeFile('result.txt', data);
+              fs.appendFile('result.txt', data);
 
            });
 

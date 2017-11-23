@@ -1,0 +1,29 @@
+joi is used to validation
+require('joi');
+
+
+var Hapi = require('hapi'),
+    Joi  = require('joi');
+
+var server = new Hapi.Server();
+
+server.connection({ port: 3000 });
+
+server.route({
+	method: 'GET',
+	path: '/{yourname*}',
+	config: {  // validate will ensure YOURNAME is valid before replying to your request
+		validate: {
+			params: {
+				yourname: Joi.string().min(2).max(40).alphanum().required()
+			}
+		},
+		handler: function (req,reply) {
+			reply('Hello '+ req.params.yourname + '!');
+		}
+	}
+});
+
+server.start(function () { // start the Hapi server on your localhost
+	console.log('Now Visit: http://localhost:' + server.info.port + '/YOURNAME');
+});

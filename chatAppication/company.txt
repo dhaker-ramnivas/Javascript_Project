@@ -1,0 +1,143 @@
+I opt CSE stream so this is enough to proud myself. When I started learning programming languages, I feel like I am a confident person in this language.Learning 
+Java and NodeJs make me more confident. I am very proud myself because I know Java and NodeJs which are very popular languages in nowadays.
+Android platform is based on Java.
+
+
+
+import java.util.*;
+
+public class Print
+{
+    public static void main(String args[])
+    { 
+            for (int i=1;i<2000;i++)
+            {
+                double value=i*2.5;
+                if(value<2000)
+                {
+                    System.out.println(value);
+                }
+                else break;
+            }
+
+    }
+}
+
+
+
+
+
+I want a job in either Android development or Javascript development because I already a good knowledge of these languages. and made many projects also.These two type of jobs are my dream job.
+
+
+
+
+If someone gives me an opportunity to opt an Indian IT company then I opt always a startup company because in startup many pressures come and we have to work hard in given period of time. this time is our own development time and learn some new.I think startup will give me very good opportunity for my career growth.
+
+In server-side code
+in nodejs using express library and socket.io
+
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/login.html');
+});
+
+
+var connectedUser=[];
+
+io.on('connection', function(socket){
+  var name;
+  
+
+    socket.on('newUser',(obj)=>{
+     name=obj.name;
+     console.log(name ," is connected ")
+     connectedUser.push(name);
+     socket.broadcast.emit("chat message","a new user "+name+"  is connected");
+    });
+   
+
+    socket.on('chat message', function(msg){
+        console.log( msg);
+  
+      socket.broadcast.emit("chat message",msg)
+    });
+
+    socket.on('disconnect', function(){
+      
+      //console.log(name+" user disconnect:" )
+
+      //var index=connectedUser.indexOf(name);
+      connectedUser.splice(index,1);
+      console.log("total connected user is :",connectedUser) 
+
+      socket.broadcast.emit("chat message"," "+name+" is disconnected.")
+    
+
+    });
+  });
+http.listen(5000, function(){
+  console.log('listening on *:5000');
+});
+
+
+
+
+
+
+
+
+Client side code
+//show in client side terminal chat message and when user close terminal it also show that username disconnected
+socket.on("chat message",data=>{
+console.log(data);
+
+
+
+
+
+import java.util.*;
+
+public class Print {
+
+    public static void main(String[] args) {
+        String[] name = {"ram","nivas","dhaker","ram","ram","nivas","kamal","jenny","ram"};
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        String tempStr;
+        for (int i = 0; i < name.length; i++)
+        {
+            tempStr = name[i];
+            if(map.containsKey(tempStr))
+            {
+                map.put(tempStr, map.get(tempStr) + 1);
+            }
+            else
+            {
+                map.put(tempStr,1);
+            }
+        }
+
+        
+        Iterator itr =map.entrySet().iterator();
+        String nameOFPerson="" ;
+        int count=0;
+        while (itr.hasNext()) {
+            Map.Entry pair = (Map.Entry)itr.next();
+            Integer frequency=(Integer)pair.getValue()
+;            if(count<frequency);
+            {
+                nameOFPerson=(String)pair.getKey();
+                count=frequency;
+
+            }
+            
+        }
+
+        System.out.print(nameOFPerson);
+    }
+}
+

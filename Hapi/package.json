@@ -1,0 +1,22 @@
+{
+  "name": "hapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "good": "^7.3.0",
+    "good-console": "^6.4.0",
+    "good-squeeze": "^5.0.2",
+    "hapi": "^16.5.2",
+    "inert": "^4.2.1",
+    "joi": "^13.0.2",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

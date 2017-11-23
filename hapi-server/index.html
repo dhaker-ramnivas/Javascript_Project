@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://localhost:5001/public/chat.js"></script>
+    <script src="http://localhost:5001/socket.io/socket.io.js"></script>
+
+    <script>
+    var socket = io('http://localhost:5001');
+    socket.on('message', function (action) {
+        var serverMsg=document.getElementById('serverMsg');
+        serverMsg.innerHTML+=action;
+    });
+    </script>
+    </head>
+    <body>
+        <div id="serverMsg">waiting for the message from server:</div>
+    </body>
+
+</html>

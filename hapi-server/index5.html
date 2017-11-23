@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://localhost:5001/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+var socket = io('http://localhost:5001');
+	function myFunction(){
+    var m=document.getElementById("message").value;
+    console.log("hii");
+	socket.emit('Chat message',m);
+	document.getElementById("message").value="";
+	}
+socket.on('Chat message', function(msg){
+    document.getElementById("chat").value+="\n"+msg;
+    console.log(msg)
+	});
+</script>
+</head>
+
+<body>
+  Chat Room:<br>
+ <textarea rows="20" cols="80" id="chat"></textarea>
+  <br>
+  Type Here:<br>
+  <input type="text" id="message">
+  <br><br>
+  <input type="button" onclick="myFunction()" value="Send">
+</body>
+</html>

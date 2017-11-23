@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function formSubmit() {
+    document.forms["myForm"].submit();
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" method="get">
+Your name: <input type="text" name="name"><br>
+<input type="button" onclick="formSubmit()" value="Send!">
+</form>
+
+</body>
+</html>

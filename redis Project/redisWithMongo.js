@@ -12,11 +12,11 @@ var url = 'mongodb://localhost/storeData';
 client.on("connect",(err)=>{    //1
     if(err) console.log(err);
     console.log("redis connected sucessfully");
-    dataFind("nivas");
+    dataFind("ram");
 });
 
 var setDataToRedis=(name,obj)=>{
-    return new Promise((reject,resolve)=>{
+    return new Promise((resolve,reject)=>{
         client.hmset(name,obj,(err)=>{
             if(err) reject(err);
             console.log("data set to redis")    
@@ -27,7 +27,7 @@ var setDataToRedis=(name,obj)=>{
 
 var dataFind= (name)=>{
         client.exists(name,(err,reply)=>{
-            if(err) reject("error found");
+            if(err) console.log("error found");
             if(reply===1)
             {
                     console.log(name," type attribute is exist in redis ");
